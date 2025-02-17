@@ -2,20 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-montserrat: "Montserrat", sans-serif;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply font-primary bg-primary text-black leading-loose;
+  }
+
+  .h1 {
+    @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+  }
+
+  .h2 {
+    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+  }
+
+  .h3 {
+    @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px #ffffff;
+  }
+
+  .text-outline-hover {
+    -webkit-text-stroke: 1px #11ffee;
+  }
+
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #111827;
+  }
+
+  .text-outline-hover:hover {
+    -webkit-text-stroke-color: #111827;
+  }
+
+  .app-container {
+    width: 800px;
+    height: 600px;
+    background: #e0e4e7;
+  }
+
+  .effect {
+    background: #e0e4e7;
+    box-shadow: 5px 5px 13px #b8c7dd, -5px -5px 13px #ffffff;
+  }
+
+  .effect-inner {
+    background: #e0e4e7;
+    box-shadow: inset 4px 3px 3px 0px #b8c7dd, inset -2px -4px 4px 0px #fff;
+  }
+
+  .title {
+    color: rgba(33, 230, 193, 0.85);
+    text-shadow: 1px 1px 2px #e0e4e7, 0 0 0 black, 1px 4px 6px #def;
+  }
+
+  .app-bg-teal {
+    background: #44dbe5;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  .typing {
+    animation: typing 2s steps(40, end);
+    white-space: nowrap;
+    animation-delay: 2s;
+    overflow: hidden;
+  }
+
+  @keyframes progressUp {
+    0% {
+      height: 0;
+    }
+    50% {
+      height: 90%;
+    }
+    100% {
+      height: 75%;
+    }
+  }
+
+  .animate-progress {
+    animation: progressUp 2s ease-in-out forwards;
+    animation-delay: 2s;
+  }
 }
